@@ -55,7 +55,7 @@ function check_notes($article)
         $src_note = get_source_code($page[0]);
         if(needle_in_cached_page($page[1], $src_note))
         {
-            echo make_link($page[0]).'<br>';
+            echo make_link($page[0], $page[2]).'<br>';
         }
     }
 }
@@ -229,10 +229,15 @@ function needle_in_cached_page($needle, $articletext)
 	}
 }
 
-function make_link($article)
+function make_link($article, $alias="")
 {
 	global $server;
-	return "<a href=\"https://$server/wiki/$article\" target=\"_blank\">$article</a>";
+    $linkAlias = $article;
+    if($alias != "")
+    {
+        $linkAlias = $alias;
+    }
+	return "<a href=\"https://$server/wiki/$article\" target=\"_blank\">$linkAlias</a>";
 }
 
 function extract_link($haystack)
