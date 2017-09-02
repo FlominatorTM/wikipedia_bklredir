@@ -47,9 +47,9 @@ function check_notes($article)
         echo "return";
         return;
     }
-    $note_pages[] = array('Benutzer:Flominator/gelesen', $article.']]', 'gelesen');
-    $note_pages[] = array('Benutzer_Diskussion:Flominator/AufGeFallen', $article.']]' , 'AufGeFallen');
-    $note_pages[] = array('Benutzer_Diskussion:Flominator/Diskussionen', $article, 'Diskussionen');
+    $note_pages[] = array('Benutzer:Flominator/gelesen', '[['.$article.']]', 'gelesen');
+    $note_pages[] = array('Benutzer_Diskussion:Flominator/AufGeFallen', '[['.$article.']]' , 'AufGeFallen');
+    $note_pages[] = array('Benutzer_Diskussion:Flominator/Diskussionen', ':'.$article.'#', 'Diskussionen');
     foreach($note_pages As $page)
     {
         $src_note = get_source_code($page[0]);
